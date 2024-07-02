@@ -1,5 +1,5 @@
 // The data
-const shoppingList = []
+let shoppingList = []
 
 // Bookmarks to DOM nodes we'll need
 const textbox = document.getElementById("new-textbox")
@@ -24,9 +24,13 @@ function handleAddClick(event) {
 
     // Put the text and buttons into the li
     newLi.innerHTML = `
-        <button id="complete-button" class="border-0 bg-white">${newItem.complete ? "✅" : "⬜"}</button>
+        <button id="complete-button" class="border-0 bg-white">
+            ${newItem.complete ? "✅" : "⬜"}
+        </button>
         <span>${newItem.text}</span>
-        <button id="delete-button" class="btn btn-sm btn-light ms-3">&times;</button>
+        <button id="delete-button" class="btn btn-sm btn-light ms-3">
+            &times;
+        </button>
     `
 
     // Add heart button event listener
@@ -57,7 +61,7 @@ function handleAddClick(event) {
 
 
 // Clear Completed button event handler
-function handleClearCompletedClick() {
+function handleClearClick() {
     // Update the data
     shoppingList = shoppingList.filter(item => !item.completed)
     
